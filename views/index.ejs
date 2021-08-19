@@ -1,0 +1,42 @@
+<%- include("template/cabecera") %>
+<body>
+    <%- include("template/nav") %>
+    <div class="container">
+        <h1>Inicio</h1>
+        <% if (users.length>0) { %>
+            <p><%= mensaje %></p>
+            <table>
+            <tr>
+                <th>nombre</th>
+                <th>descripcion</th>
+                <th>acciones</th>
+            </tr>
+            <% users.forEach(function(user){ %>
+                <tr>
+                    <td><%= user.name %></td>
+                    <td><%= user.password %></td>
+                    <td><button data-doc="<%= user.id %>" onclick="handler(this)" class="eliminar">eliminar</button>
+                        <a href="/editar/<%= user.id %>"><button data-doc="<%= user.id %>" " >editar</button></a>
+                    </td>
+                </tr>
+                
+              <% }); %>
+          <% } %>
+        </table>
+          <% if (users.length<1) { %>
+                <p>no hay usuarios agrege algunos</p>
+          <% } %>
+        
+    </div>
+
+      <script>
+          function handler(e){
+              let url="/borrar/"+e.dataset.doc
+              fetch(url,{method:"DELETE"})
+              .then((res)=>res.json())
+              .then((data)=>window.location.href=data.redirect)
+              .catch((err)=>console.log(err))
+          }
+      </script>
+</body>
+</html>

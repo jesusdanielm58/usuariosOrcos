@@ -1,0 +1,14 @@
+<%- include("template/cabecera",{title:"editar"}) %>
+<body>
+    <%- include("template/nav") %>
+    <div class="container">
+        <h1>Editar</h1>
+        <form action="/editar/<%=user.id%>" method="POST">
+            <p><%=user.id%></p>
+            <input type="text" placeholder="name" name="name" value="<%= user.name %>">
+            <input type="text" name="password" placeholder="descricion" value="<%= user.password %>">
+            <input type="submit" value="editar" data-id="<%= user.id %>">
+        </form>
+    </div>
+</body>
+</html>
