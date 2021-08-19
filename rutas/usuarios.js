@@ -65,4 +65,6 @@ router.delete("/borrar/:id",(req,res)=>{
 
 })
 
+router.get('/favicon.ico', (req, res) => res.status(204));
+
 module.exports=router
