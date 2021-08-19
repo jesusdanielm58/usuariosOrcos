@@ -16,17 +16,15 @@
                     <td><%= user.name %></td>
                     <td><%= user.password %></td>
                     <td><button data-doc="<%= user.id %>" onclick="handler(this)" class="eliminar">eliminar</button>
-                        <a href="/editar/<%= user.id %>"><button data-doc="<%= user.id %>" " >editar</button></a>
+                        <a href="/editar/<%= user.id %>"><button >editar</button></a>
                     </td>
                 </tr>
-                
               <% }); %>
           <% } %>
         </table>
           <% if (users.length<1) { %>
                 <p>no hay usuarios agrege algunos</p>
           <% } %>
-        
     </div>
 
       <script>
