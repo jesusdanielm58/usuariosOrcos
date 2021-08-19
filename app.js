@@ -25,6 +25,6 @@ server.use((req,res)=>{
     res.render("404",{title:404})
 })
 
-server.listen(process.env.PORT|3000,()=>console.log(`escuchando en el puerto ${process.env.PORT}`))
+server.listen(process.env.PORT||3000,()=>console.log(`escuchando en el puerto ${process.env.PORT}`))
 
 
